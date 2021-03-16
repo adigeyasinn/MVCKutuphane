@@ -9,16 +9,16 @@
         <EntityTypeShape EntityType="DbKutuphaneModel.TBLHareket" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DbKutuphaneModel.TBLKasaa" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbKutuphaneModel.TBLKategori" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbKutuphaneModel.TBLKitap" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbKutuphaneModel.TBLKitap" PointX="3" PointY="1.125" Width="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DbKutuphaneModel.TBLPersonel" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbKutuphaneModel.TBLUyeler" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DbKutuphaneModel.TBLYazar" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <AssociationConnector Association="DbKutuphaneModel.FK_TBLCezalar_TBLHareket" ManuallyRouted="false" />
         <AssociationConnector Association="DbKutuphaneModel.FK_TBLCezalar_TBLUyeler" ManuallyRouted="false" />
-        <AssociationConnector Association="DbKutuphaneModel.FK_TBLHareket_TBLKitap" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="DbKutuphaneModel.FK_TBLHareket_TBLKitap" />
         <AssociationConnector Association="DbKutuphaneModel.FK_TBLHareket_TBLUyeler" ManuallyRouted="false" />
-        <AssociationConnector Association="DbKutuphaneModel.FK_TBLKitap_TBLKategori" ManuallyRouted="false" />
-        <AssociationConnector Association="DbKutuphaneModel.FK_TBLKitap_TBLYazar" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="DbKutuphaneModel.FK_TBLKitap_TBLKategori" />
+        <AssociationConnector ManuallyRouted="false" Association="DbKutuphaneModel.FK_TBLKitap_TBLYazar" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
