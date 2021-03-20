@@ -11,7 +11,8 @@ namespace MVCKutuphane.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TBLUyeler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,10 +23,14 @@ namespace MVCKutuphane.Models.Entity
         }
     
         public int ID { get; set; }
+        [Required(ErrorMessage ="Adı Boş Bırakamazsınız")]
+        [StringLength(20,ErrorMessage = "En Fazla 20 Karakter Girebilirsiniz")]
         public string AD { get; set; }
         public string SOYAD { get; set; }
         public string MAİL { get; set; }
         public string KULLANICIADI { get; set; }
+       
+        [StringLength(10, ErrorMessage = "En Fazla 10 Karakter Girebilirsiniz")]
         public string SIFRE { get; set; }
         public string FOTOGRAF { get; set; }
         public string TELEFON { get; set; }
