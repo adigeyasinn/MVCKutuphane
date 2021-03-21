@@ -14,6 +14,12 @@ namespace MVCKutuphane.Models.Entity
     
     public partial class TBLKitap
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBLKitap()
+        {
+            this.TBLHareket = new HashSet<TBLHareket>();
+        }
+    
         public int ID { get; set; }
         public string AD { get; set; }
         public Nullable<byte> KATEGORI { get; set; }
@@ -23,7 +29,8 @@ namespace MVCKutuphane.Models.Entity
         public string SAYFA { get; set; }
         public Nullable<bool> DURUM { get; set; }
     
-        public virtual TBLHareket TBLHareket { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBLHareket> TBLHareket { get; set; }
         public virtual TBLKategori TBLKategori { get; set; }
         public virtual TBLYazar TBLYazar { get; set; }
     }

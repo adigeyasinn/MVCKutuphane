@@ -23,14 +23,14 @@ namespace MVCKutuphane.Models.Entity
         public int ID { get; set; }
         public Nullable<int> KITAP { get; set; }
         public Nullable<int> UYE { get; set; }
-        public Nullable<int> PERSONEL { get; set; }
+        public Nullable<byte> PERSONEL { get; set; }
         public Nullable<System.DateTime> ALISTARIH { get; set; }
         public Nullable<System.DateTime> IADETARIH { get; set; }
-        public Nullable<bool> DURUM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBLCezalar> TBLCezalar { get; set; }
         public virtual TBLKitap TBLKitap { get; set; }
         public virtual TBLUyeler TBLUyeler { get; set; }
+        public virtual TBLPersonel TBLPersonel { get; set; }
     }
 }

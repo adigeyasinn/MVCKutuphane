@@ -30,8 +30,8 @@ namespace MVCKutuphane.Models.Entity
         public virtual DbSet<TBLKasaa> TBLKasaa { get; set; }
         public virtual DbSet<TBLKategori> TBLKategori { get; set; }
         public virtual DbSet<TBLKitap> TBLKitap { get; set; }
-        public virtual DbSet<TBLPersonel> TBLPersonel { get; set; }
         public virtual DbSet<TBLUyeler> TBLUyeler { get; set; }
         public virtual DbSet<TBLYazar> TBLYazar { get; set; }
+        public virtual DbSet<TBLPersonel> TBLPersonel { get; set; }
     }
 }

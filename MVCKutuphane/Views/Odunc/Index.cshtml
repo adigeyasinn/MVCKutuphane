@@ -1,0 +1,47 @@
+﻿@using MVCKutuphane.Models.Entity
+@model List<TBLHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Ödünç Kitap Listesi</h2>
+
+@*@using (Html.BeginForm("Index", "Kitap", FormMethod.Get))  ----------arama kısmı burası--------
+{
+    <div style="margin-bottom:15px; margin-top:15px">
+        <b>Aranacak Kitap Adını Girin:&nbsp </b> @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
+
+}*@
+<table class="table table-bordered">
+    <tr>
+        <td>İşlem ID</td>
+        <td>Kitap Adı</td>
+        <td>Üye</td>
+        <td>Personel</td>
+        <td>Alış Tarihi</td>
+        <td>İade Tarihi</td>
+        <td>İade</td>
+       
+
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+
+            <td>@k.ID</td>
+            <td>@k.TBLKitap.AD</td>
+            <td>@k.TBLUyeler.AD&nbsp @k.TBLUyeler.SOYAD</td>
+            <td>@k.PERSONEL</td>
+            <td>@Convert.ToDateTime(k.ALISTARIH).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(k.IADETARIH).ToString("dd/MM/yyyy")</td>
+            
+            <td><a href="/Odunc/Oduncİade/@k.ID" class="btn btn-default" style="background-color:#4e0d29; color:white ">Kitabı İade Et</a></td>
+
+        </tr>
+
+    }
+
+</table>
