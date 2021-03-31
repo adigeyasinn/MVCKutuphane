@@ -13,7 +13,7 @@ namespace MVCKutuphane.Controllers
         // GET: Odunc
         public ActionResult Index()
         {
-            var degerler = db.TBLHareket.ToList();
+            var degerler = db.TBLHareket.Where(x => x.ISLEMDURUM == false).ToList();
             return View(degerler);
         }
         
@@ -30,6 +30,22 @@ namespace MVCKutuphane.Controllers
             db.TBLHareket.Add(p);
             db.SaveChanges();
             return View();
+        }
+
+        public ActionResult Oduncİade(int id)
+        {
+            var odn = db.TBLHareket.Find(id);
+            
+            return View("Oduncİade", odn);
+
+        }
+        public ActionResult OduncGuncelle(TBLHareket p)
+        {
+            var prs = db.TBLHareket.Find(p.ID);
+            prs.UYEGETİRTARİH = p.UYEGETİRTARİH;
+            prs.ISLEMDURUM = true;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

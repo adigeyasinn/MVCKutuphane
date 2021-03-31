@@ -92,6 +92,7 @@ namespace MVCKutuphane.Controllers
             ktp.BASIMYIL = p.BASIMYIL;
             ktp.SAYFA = p.SAYFA;
             ktp.YAYINEVI = p.YAYINEVI;
+            ktp.DURUM = true;
             var ktg = db.TBLKategori.Where(k => k.ID == p.TBLKategori.ID).FirstOrDefault();
             var yzr = db.TBLYazar.Where(y => y.ID == p.TBLYazar.ID).FirstOrDefault();
             ktp.KATEGORI = ktg.ID;

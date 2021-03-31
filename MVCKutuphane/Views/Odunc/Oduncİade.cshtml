@@ -1,0 +1,44 @@
+﻿@model MVCKutuphane.Models.Entity.TBLHareket
+@{
+    ViewBag.Title = "Oduncİade";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("OduncGuncelle", "Odunc", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+
+        <label>Hareket ID</label>
+        @Html.TextBoxFor(y => y.ID, new { @class = "form-control" })
+        <br />
+
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(y => y.TBLKitap.AD, new { @class = "form-control" })
+
+        <br />
+        <label>Üye </label>
+        @Html.TextBoxFor(y => y.TBLUyeler.AD, new { @class = "form-control" })
+        <br />
+
+        <label>Personel</label>
+        @Html.TextBoxFor(y => y.TBLPersonel.PERSONEL, new { @class = "form-control" })
+        <br />
+
+
+        <label>Alış Tarihi</label>
+        @Html.TextBoxFor(y => y.ALISTARIH,"{0:dd.MM.yyyy}", new { @class = "form-control" })
+        <br />
+
+        <label>Belirli İade Tarihi</label>
+        @Html.TextBoxFor(y => y.IADETARIH, "{0:dd.MM.yyyy}", new { @class = "form-control" })
+        <br />
+
+        <label>Üyenin Getirdiği Tarih</label>
+        <input type="text" class="form-control" name="UYEGETİRTARİH" value="@DateTime.Now.ToShortDateString()" />
+
+    </div>
+    <div>
+        <button class="btn btn-group" style="background-color:#4f0e0e; color:white">Kitabı İade Et</button>
+    </div>
+}
