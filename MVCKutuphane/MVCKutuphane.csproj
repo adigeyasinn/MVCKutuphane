@@ -141,6 +141,7 @@
     <Compile Include="Controllers\OduncController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\UyeController.cs" />
+    <Compile Include="Controllers\VitrinController.cs" />
     <Compile Include="Controllers\YazarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -161,6 +162,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TBLCezalar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\TBLHakkımızda.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TBLHareket.cs">
@@ -184,6 +188,7 @@
     <Compile Include="Models\Entity\TBLYazar.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Siniflarim\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +213,24 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="web\1\assets\img\avataaars.svg" />
+    <Content Include="web\1\assets\img\favicon.ico" />
+    <Content Include="web\1\assets\img\ikiŞehir.jpg" />
+    <Content Include="web\1\assets\img\library.png" />
+    <Content Include="web\1\assets\img\portfolio\cabin.png" />
+    <Content Include="web\1\assets\img\portfolio\cake.png" />
+    <Content Include="web\1\assets\img\portfolio\circus.png" />
+    <Content Include="web\1\assets\img\portfolio\game.png" />
+    <Content Include="web\1\assets\img\portfolio\safe.png" />
+    <Content Include="web\1\assets\img\portfolio\submarine.png" />
+    <Content Include="web\1\assets\img\tunaKılavuzu.png" />
+    <Content Include="web\1\assets\img\veronika.jpg" />
+    <Content Include="web\1\assets\mail\contact_me.js" />
+    <Content Include="web\1\assets\mail\contact_me.php" />
+    <Content Include="web\1\assets\mail\jqBootstrapValidation.js" />
+    <Content Include="web\1\css\styles.css" />
+    <Content Include="web\1\index.html" />
+    <Content Include="web\1\js\scripts.js" />
     <EntityDeploy Include="Models\Entity\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -260,6 +283,7 @@
     <Content Include="Views\Odunc\Index.cshtml" />
     <Content Include="Views\Odunc\Oduncİade.cshtml" />
     <Content Include="Views\Islem\Index.cshtml" />
+    <Content Include="Views\Vitrin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

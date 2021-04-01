@@ -16,6 +16,13 @@
           <Property Name="BITIS" Type="smalldatetime" />
           <Property Name="PARA" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
+        <EntityType Name="TBLHakkımızda">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACIKLAMA" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="TBLHareket">
           <Key>
             <PropertyRef Name="ID" />
@@ -56,6 +63,7 @@
           <Property Name="YAYINEVI" Type="varchar" MaxLength="50" />
           <Property Name="SAYFA" Type="varchar" MaxLength="4" />
           <Property Name="DURUM" Type="bit" />
+          <Property Name="KITAPRESIM" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="TBLPersonel">
           <Key>
@@ -173,6 +181,7 @@
         </Association>
         <EntityContainer Name="DbKutuphaneModelStoreContainer">
           <EntitySet Name="TBLCezalar" EntityType="Self.TBLCezalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLHakkımızda" EntityType="Self.TBLHakkımızda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLHareket" EntityType="Self.TBLHareket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLKasaa" EntityType="Self.TBLKasaa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLKategori" EntityType="Self.TBLKategori" Schema="dbo" store:Type="Tables" />
@@ -274,6 +283,7 @@
           <NavigationProperty Name="TBLHareket" Relationship="Self.FK_TBLHareket_TBLKitap1" FromRole="TBLKitap" ToRole="TBLHareket" />
           <NavigationProperty Name="TBLKategori" Relationship="Self.FK_TBLKitap_TBLKategori" FromRole="TBLKitap" ToRole="TBLKategori" />
           <NavigationProperty Name="TBLYazar" Relationship="Self.FK_TBLKitap_TBLYazar" FromRole="TBLKitap" ToRole="TBLYazar" />
+          <Property Name="KITAPRESIM" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TBLUyeler">
           <Key>
@@ -410,6 +420,7 @@
             <End Role="TBLPersonel" EntitySet="TBLPersonel" />
             <End Role="TBLHareket" EntitySet="TBLHareket" />
           </AssociationSet>
+          <EntitySet Name="TBLHakkımızda" EntityType="DbKutuphaneModel.TBLHakkımızda" />
         </EntityContainer>
         <EntityType Name="TBLPersonel">
           <Key>
@@ -431,6 +442,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TBLHakkımızda">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -483,6 +501,7 @@
           <EntitySetMapping Name="TBLKitap">
             <EntityTypeMapping TypeName="DbKutuphaneModel.TBLKitap">
               <MappingFragment StoreEntitySet="TBLKitap">
+                <ScalarProperty Name="KITAPRESIM" ColumnName="KITAPRESIM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
@@ -523,6 +542,14 @@
             <EntityTypeMapping TypeName="DbKutuphaneModel.TBLPersonel">
               <MappingFragment StoreEntitySet="TBLPersonel">
                 <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLHakkımızda">
+            <EntityTypeMapping TypeName="DbKutuphaneModel.TBLHakkımızda">
+              <MappingFragment StoreEntitySet="TBLHakkımızda">
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

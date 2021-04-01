@@ -33,5 +33,6 @@ namespace MVCKutuphane.Models.Entity
         public virtual DbSet<TBLUyeler> TBLUyeler { get; set; }
         public virtual DbSet<TBLYazar> TBLYazar { get; set; }
         public virtual DbSet<TBLPersonel> TBLPersonel { get; set; }
+        public virtual DbSet<TBLHakkımızda> TBLHakkımızda { get; set; }
     }
 }
