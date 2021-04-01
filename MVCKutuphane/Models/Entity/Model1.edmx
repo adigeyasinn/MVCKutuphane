@@ -36,6 +36,16 @@
           <Property Name="UYEGETİRTARİH" Type="smalldatetime" />
           <Property Name="ISLEMDURUM" Type="bit" />
         </EntityType>
+        <EntityType Name="TBLİletişim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="50" />
+          <Property Name="MAIL" Type="varchar" MaxLength="50" />
+          <Property Name="KONU" Type="varchar" MaxLength="50" />
+          <Property Name="MESAJ" Type="varchar" MaxLength="500" />
+        </EntityType>
         <EntityType Name="TBLKasaa">
           <Key>
             <PropertyRef Name="ID" />
@@ -183,6 +193,7 @@
           <EntitySet Name="TBLCezalar" EntityType="Self.TBLCezalar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLHakkımızda" EntityType="Self.TBLHakkımızda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLHareket" EntityType="Self.TBLHareket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLİletişim" EntityType="Self.TBLİletişim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLKasaa" EntityType="Self.TBLKasaa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLKategori" EntityType="Self.TBLKategori" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLKitap" EntityType="Self.TBLKitap" Schema="dbo" store:Type="Tables" />
@@ -421,6 +432,7 @@
             <End Role="TBLHareket" EntitySet="TBLHareket" />
           </AssociationSet>
           <EntitySet Name="TBLHakkımızda" EntityType="DbKutuphaneModel.TBLHakkımızda" />
+          <EntitySet Name="TBLİletişim" EntityType="DbKutuphaneModel.TBLİletişim" />
         </EntityContainer>
         <EntityType Name="TBLPersonel">
           <Key>
@@ -448,6 +460,16 @@
           </Key>
           <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLİletişim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MESAJ" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -550,6 +572,17 @@
             <EntityTypeMapping TypeName="DbKutuphaneModel.TBLHakkımızda">
               <MappingFragment StoreEntitySet="TBLHakkımızda">
                 <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLİletişim">
+            <EntityTypeMapping TypeName="DbKutuphaneModel.TBLİletişim">
+              <MappingFragment StoreEntitySet="TBLİletişim">
+                <ScalarProperty Name="MESAJ" ColumnName="MESAJ" />
+                <ScalarProperty Name="KONU" ColumnName="KONU" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

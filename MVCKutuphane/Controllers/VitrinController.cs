@@ -10,6 +10,7 @@ namespace MVCKutuphane.Controllers
     public class VitrinController : Controller
     {
         DbKutuphaneEntities db = new DbKutuphaneEntities();
+       [HttpGet]
         public ActionResult Index()
         {
             Class1 cs = new Class1();
@@ -17,6 +18,13 @@ namespace MVCKutuphane.Controllers
             cs.Deger2 = db.TBLHakkımızda.ToList();
             //var degerler = db.TBLKitap.ToList();
             return View(cs);
+        }
+        [HttpPost]
+        public ActionResult Index(TBLİletişim t)
+        {
+            db.TBLİletişim.Add(t);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
