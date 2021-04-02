@@ -25,6 +25,10 @@ namespace MVCKutuphane.Controllers
         [HttpPost]
         public ActionResult YazarEkle(TBLYazar p)
         {
+            if (!ModelState.IsValid) //Model üzerinde yaptığım işlem geçerli değilse yazarekleye döndür
+            {
+                return View("YazarEkle");
+            }
             db.TBLYazar.Add(p);
             db.SaveChanges();
             return View();

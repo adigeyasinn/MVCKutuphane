@@ -32,10 +32,13 @@ namespace MVCKutuphane.Controllers
             return View();
         }
 
-        public ActionResult Oduncİade(int id)
+        public ActionResult Oduncİade(TBLHareket t)
         {
-            var odn = db.TBLHareket.Find(id);
-            
+            var odn = db.TBLHareket.Find(t.ID);
+            DateTime d1 = DateTime.Parse(odn.IADETARIH.ToString());
+            DateTime d2 = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            TimeSpan d3 = d2 - d1;
+            ViewBag.dgr = d3.TotalDays;
             return View("Oduncİade", odn);
 
         }

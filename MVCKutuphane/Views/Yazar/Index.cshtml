@@ -6,25 +6,27 @@
 }
 
 <h2>Yazarlar</h2>
- <table class="table table-bordered">
-     <tr>
-         <th>ID</th>
-         <th>AD</th>
-         <th>SOYAD</th>
-         <th>DETAY</th>
-         <th>SİL</th>
-         <th>GÜNCELLE</th>
-     </tr>
-     @foreach (var y in Model)
-     {
-         <tr>
-             <td>@y.ID</td>
-             <td>@y.AD</td>
-             <td>@y.SOYAD</td>
-             <td>@y.DETAY</td>
-             <td>@Html.ActionLink("Sil","YazarSil",new {id=y.ID },new {@class="btn btn-danger", onclick="return confirm('Silmek İstiyor Musunuz?')" })</td>
-             <td><a href="/Yazar/YazarGetir/@y.ID" class="btn btn-success">Güncelle</a></td>    
-         </tr>
-     }
- </table>
+<table class="table table-striped">
+    
+    <tr style="background-color:rgb(0, 255, 255)">
+        <th>ID</th>
+        <th>AD</th>
+        <th>SOYAD</th>
+        <th>DETAY</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var y in Model)
+    {
+        <tr>
+            <td>@y.ID</td>
+            <td>@y.AD</td>
+            <td>@y.SOYAD</td>
+            <td>@y.DETAY</td>
+            <td>@Html.ActionLink("Sil", "YazarSil", new { id = y.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstiyor Musunuz?')" })</td>
+            <td><a href="/Yazar/YazarGetir/@y.ID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+  
+</table>
 <a class="btn btn-primary" href="/Yazar/YazarEkle/">Yeni Yazar Ekle</a>
