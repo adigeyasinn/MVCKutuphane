@@ -189,6 +189,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="EnFazlaKitapYazar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="EnfazlaÜyee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DbKutuphaneModelStoreContainer">
           <EntitySet Name="TBLCezalar" EntityType="Self.TBLCezalar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLHakkımızda" EntityType="Self.TBLHakkımızda" Schema="dbo" store:Type="Tables" />
@@ -433,6 +435,9 @@
           </AssociationSet>
           <EntitySet Name="TBLHakkımızda" EntityType="DbKutuphaneModel.TBLHakkımızda" />
           <EntitySet Name="TBLİletişim" EntityType="DbKutuphaneModel.TBLİletişim" />
+          <FunctionImport Name="EnFazlaKitapYazar" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnfazlaÜye" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnfazlaÜyee" ReturnType="Collection(String)" />
         </EntityContainer>
         <EntityType Name="TBLPersonel">
           <Key>
@@ -587,6 +592,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EnFazlaKitapYazar" FunctionName="DbKutuphaneModel.Store.EnFazlaKitapYazar" />
+          <FunctionImportMapping FunctionImportName="EnfazlaÜyee" FunctionName="DbKutuphaneModel.Store.EnfazlaÜyee" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -12,6 +12,8 @@ namespace MVCKutuphane.Models.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DbKutuphaneEntities : DbContext
     {
@@ -35,5 +37,20 @@ namespace MVCKutuphane.Models.Entity
         public virtual DbSet<TBLPersonel> TBLPersonel { get; set; }
         public virtual DbSet<TBLHakkımızda> TBLHakkımızda { get; set; }
         public virtual DbSet<TBLİletişim> TBLİletişim { get; set; }
+    
+        public virtual ObjectResult<string> EnFazlaKitapYazar()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnFazlaKitapYazar");
+        }
+    
+        public virtual ObjectResult<string> EnfazlaÜye()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnfazlaÜye");
+        }
+    
+        public virtual ObjectResult<string> EnfazlaÜyee()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnfazlaÜyee");
+        }
     }
 }
