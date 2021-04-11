@@ -1,0 +1,30 @@
+﻿@using MVCKutuphane.Models.Entity
+@model List<TBLMesajlar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
+}
+
+<h2>Gelen Mesajlar Sayfası</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Gönderen
+        </th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>İşlem</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.GONDEREN</td>
+            <td>@item.KONU</td>
+            <td>@item.ICERIK</td>
+            <td>@item.TARIH</td>
+        </tr>
+    }
+</table>
+

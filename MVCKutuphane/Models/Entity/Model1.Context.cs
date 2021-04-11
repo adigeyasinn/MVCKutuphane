@@ -37,6 +37,7 @@ namespace MVCKutuphane.Models.Entity
         public virtual DbSet<TBLPersonel> TBLPersonel { get; set; }
         public virtual DbSet<TBLHakkımızda> TBLHakkımızda { get; set; }
         public virtual DbSet<TBLİletişim> TBLİletişim { get; set; }
+        public virtual DbSet<TBLMesajlar> TBLMesajlar { get; set; }
     
         public virtual ObjectResult<string> EnFazlaKitapYazar()
         {

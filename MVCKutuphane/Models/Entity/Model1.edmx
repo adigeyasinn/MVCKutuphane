@@ -75,6 +75,17 @@
           <Property Name="DURUM" Type="bit" />
           <Property Name="KITAPRESIM" Type="varchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="TBLMesajlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GONDEREN" Type="varchar" MaxLength="50" />
+          <Property Name="ALICI" Type="varchar" MaxLength="50" />
+          <Property Name="KONU" Type="varchar" MaxLength="50" />
+          <Property Name="ICERIK" Type="varchar" MaxLength="50" />
+          <Property Name="TARIH" Type="smalldatetime" />
+        </EntityType>
         <EntityType Name="TBLPersonel">
           <Key>
             <PropertyRef Name="ID" />
@@ -199,6 +210,7 @@
           <EntitySet Name="TBLKasaa" EntityType="Self.TBLKasaa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLKategori" EntityType="Self.TBLKategori" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLKitap" EntityType="Self.TBLKitap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLMesajlar" EntityType="Self.TBLMesajlar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLPersonel" EntityType="Self.TBLPersonel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLUyeler" EntityType="Self.TBLUyeler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLYazar" EntityType="Self.TBLYazar" Schema="dbo" store:Type="Tables" />
@@ -438,6 +450,7 @@
           <FunctionImport Name="EnFazlaKitapYazar" ReturnType="Collection(String)" />
           <FunctionImport Name="EnfazlaÜye" ReturnType="Collection(String)" />
           <FunctionImport Name="EnfazlaÜyee" ReturnType="Collection(String)" />
+          <EntitySet Name="TBLMesajlar" EntityType="DbKutuphaneModel.TBLMesajlar" />
         </EntityContainer>
         <EntityType Name="TBLPersonel">
           <Key>
@@ -475,6 +488,17 @@
           <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MESAJ" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLMesajlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GONDEREN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ALICI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ICERIK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TARIH" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -594,6 +618,18 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="EnFazlaKitapYazar" FunctionName="DbKutuphaneModel.Store.EnFazlaKitapYazar" />
           <FunctionImportMapping FunctionImportName="EnfazlaÜyee" FunctionName="DbKutuphaneModel.Store.EnfazlaÜyee" />
+          <EntitySetMapping Name="TBLMesajlar">
+            <EntityTypeMapping TypeName="DbKutuphaneModel.TBLMesajlar">
+              <MappingFragment StoreEntitySet="TBLMesajlar">
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ICERIK" ColumnName="ICERIK" />
+                <ScalarProperty Name="KONU" ColumnName="KONU" />
+                <ScalarProperty Name="ALICI" ColumnName="ALICI" />
+                <ScalarProperty Name="GONDEREN" ColumnName="GONDEREN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

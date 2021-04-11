@@ -27,5 +27,13 @@ namespace MVCKutuphane.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Kitaplarim() //çalış buraya
+        {
+            var kullanici = (string)Session["Mail"];
+            var id = db.TBLUyeler.Where(x => x.MAİL == kullanici.ToString()).Select(z => z.ID).FirstOrDefault();
+            var degerler = db.TBLHareket.Where(x => x.UYE == id).ToList();
+            return View(degerler);
+        }
     }
 }
