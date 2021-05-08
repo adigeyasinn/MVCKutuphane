@@ -57,5 +57,12 @@ namespace MVCKutuphane.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult YazarKitaplar(int id)
+        {
+            var yazar = db.TBLKitap.Where(x => x.YAZAR == id).ToList();
+            var yzrad = db.TBLYazar.Where(k => k.ID == id).Select(z => z.AD + " " + z.SOYAD).FirstOrDefault();
+            ViewBag.y1 = yzrad;
+            return View(yazar);
+        }
     }
 }

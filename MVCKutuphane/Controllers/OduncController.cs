@@ -20,6 +20,27 @@ namespace MVCKutuphane.Controllers
         [HttpGet]
         public ActionResult OduncVer()
         {
+            List<SelectListItem> deger1 = (from x in db.TBLUyeler.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.AD+" "+x.SOYAD,
+                                               Value = x.ID.ToString()
+                                           }).ToList();
+            List<SelectListItem> deger2 = (from x in db.TBLKitap.Where(z=>z.DURUM==true).ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.AD ,
+                                              Value = x.ID.ToString()
+                                          }).ToList();
+            List<SelectListItem> deger3 = (from x in db.TBLPersonel.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.PERSONEL,
+                                               Value = x.ID.ToString()
+                                           }).ToList();
+            ViewBag.dgr1 = deger1;
+            ViewBag.dgr2 = deger2;
+            ViewBag.dgr3 = deger3;
             return View();
         }
 
@@ -27,9 +48,15 @@ namespace MVCKutuphane.Controllers
         [HttpPost]  //Bir gönderme işlemi olduğunda bu çalışsın
         public ActionResult OduncVer(TBLHareket p)
         {
+            var d1 = db.TBLUyeler.Where(k => k.ID == p.TBLUyeler.ID).FirstOrDefault();
+            var d2 = db.TBLKitap.Where(k => k.ID == p.TBLKitap.ID).FirstOrDefault();
+            var d3 = db.TBLPersonel.Where(k => k.ID == p.TBLPersonel.ID).FirstOrDefault();
+            p.TBLUyeler = d1;
+            p.TBLKitap = d2;
+            p.TBLPersonel = d3;
             db.TBLHareket.Add(p);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Oduncİade(TBLHareket t)

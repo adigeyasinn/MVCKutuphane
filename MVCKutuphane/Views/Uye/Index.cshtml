@@ -14,13 +14,11 @@
         <th>ÜYE ID</th>
         <th>ÜYE ADI</th>
         <th>ÜYE SOYADI</th>
-        <th>MAİL</th>
-        <th>KULLANICI ADI</th>
-        <th>ÜYE ŞİFRESİ</th>
-        <th>TELEFON</th>
+       
         <th>OKUL</th>
         <th>SİL</th>
         <th>GÜNCELLE</th>
+        <th>ÜYE KİTAP GEÇMİŞİ</th>
     </tr>
     @foreach (var ktg in Model)
     {
@@ -28,13 +26,12 @@
             <td>@ktg.ID</td>
             <td>@ktg.AD</td>
             <td>@ktg.SOYAD</td>
-            <td>@ktg.KULLANICIADI</td>
-            <td>@ktg.MAİL</td>
-            <td>@ktg.SIFRE</td>
-            <td>@ktg.TELEFON</td>
+            
+            
             <td>@ktg.OKUL</td>
             <td><a href="/Uye/UyeSil/@ktg.ID" class="btn btn-danger">Sil</a></td>
             <td><a href="/Uye/UyeGetir/@ktg.ID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Uye/UyeGecmis/@ktg.ID" class="btn btn-link" style="background-color:burlywood">Kitap Geçmişi</a></td>
 
         </tr>
     }

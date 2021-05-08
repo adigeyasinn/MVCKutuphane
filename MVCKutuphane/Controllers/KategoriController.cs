@@ -13,7 +13,7 @@ namespace MVCKutuphane.Controllers
         // GET: Kategori
         public ActionResult Index()
         {
-            var degerler = db.TBLKategori.ToList();
+            var degerler = db.TBLKategori.Where(x => x.DURUM == true).ToList();
             return View(degerler);
         }
 
@@ -34,7 +34,8 @@ namespace MVCKutuphane.Controllers
         public ActionResult KategoriSil(int id)
         {
             var kategori = db.TBLKategori.Find(id);
-            db.TBLKategori.Remove(kategori);
+            //db.TBLKategori.Remove(kategori);
+            kategori.DURUM = false;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

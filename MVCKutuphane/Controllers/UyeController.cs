@@ -65,5 +65,12 @@ namespace MVCKutuphane.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult UyeGecmis(int id)
+        {
+            var uye = db.TBLHareket.Where(a => a.UYE == id).ToList();
+            var uyektp = db.TBLUyeler.Where(y => y.ID == id).Select(z => z.AD + " " + z.SOYAD).FirstOrDefault();
+            ViewBag.u1 = uyektp;
+            return View(uye);
+        }
     }
 }
